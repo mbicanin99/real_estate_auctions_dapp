@@ -1,0 +1,16 @@
+<div class="bid-section">
+  <h3>Place Your Bid</h3>
+  <div class="bid-input-container">
+    <input matInput [(ngModel)]="bidAmount" type="number" placeholder="Enter your bid" class="bid-input">
+    <button mat-raised-button color="primary" (click)="onBid()" class="bid-button">Place Bid</button>
+  </div>
+  <div class="bid-info">
+    <p><strong>Highest Bid:</strong> {{highestBid | currency}}</p>
+    <p><strong>Time Remaining:</strong> {{ timeRemaining }}</p>
+    <p *ngIf="highestBidder"><strong>Highest Bidder:</strong> {{ highestBidder }}</p>
+  </div>
+  <div *ngIf="bidError" class="error-message">
+    {{ bidError }}
+  </div>
+</div>
+

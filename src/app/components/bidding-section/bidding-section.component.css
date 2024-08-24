@@ -1,0 +1,84 @@
+
+.bid-section {
+  padding: 15px; /* Adjust padding for better fit on smaller screens */
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.bid-section h3 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.bid-input-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically on small screens */
+  gap: 10px;
+}
+
+.bid-input {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.bid-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.bid-button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.bid-info {
+  margin-top: 15px;
+}
+
+.bid-info p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+/* Responsive behavior with media queries */
+@media (max-width: 600px) {
+  .bid-section {
+    padding: 10px; /* Reduce padding on smaller screens */
+    margin-top: 15px;
+  }
+
+  .bid-section h3 {
+    font-size: 1.2em; /* Smaller font size for small screens */
+  }
+
+  .bid-input-container {
+    flex-direction: column; /* Stack input and button vertically */
+  }
+
+  .bid-input {
+    font-size: 0.9em; /* Smaller font size for input */
+  }
+
+  .bid-button {
+    font-size: 0.9em; /* Smaller font size for button */
+    padding: 8px 16px; /* Adjust padding for smaller button */
+  }
+
+  .bid-info p {
+    font-size: 1em; /* Smaller font size for bid-info */
+  }
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
