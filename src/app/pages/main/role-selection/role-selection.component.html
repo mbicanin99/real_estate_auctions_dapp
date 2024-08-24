@@ -1,0 +1,14 @@
+<div class="role-selection-overlay" *ngIf="isVisible" (click)="closeOverlayOnOutsideClick($event)">
+  <div class="role-selection" (click)="preventClose($event)">
+    <button class="close-button" (click)="closeOverlay()">✕</button>
+    <h2 class="role-selection-title">Select your role</h2>
+    <div class="role-buttons">
+      <button class="role-selection-button bidder-button" (click)="setRole('Bidder')">
+        <span class="role-icon">💵</span> Bidder
+      </button>
+      <button class="role-selection-button auctioneer-button" (click)="setRole('Auctioneer')">
+        <span class="role-icon">🏠</span> Auctioneer
+      </button>
+    </div>
+  </div>
+</div>
