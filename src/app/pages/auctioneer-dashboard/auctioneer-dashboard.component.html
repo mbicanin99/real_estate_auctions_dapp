@@ -1,0 +1,50 @@
+<div class="auctioneer-dashboard">
+  <div class="title">Auctioneer Dashboard</div>
+  <div class="subtitle">Manage Auctions</div>
+
+  <div class="dashboard-section">
+    <button
+      (click)="showAllProperties()"
+      [ngClass]="{'selected-button': activeButton === 'all'}">
+      All Auctions
+    </button>
+    <button
+      (click)="showOwnProperties()"
+      [ngClass]="{'selected-button': activeButton === 'own'}">
+      My Auctions
+    </button>
+    <button
+      (click)="openNewRealEstateModal()"
+      [ngClass]="{'selected-button': activeButton === 'new'}">
+      Add New Auction
+    </button>
+  </div>
+
+  <div *ngIf="filteredAuctions.length > 0" class="property-list">
+    <ng-container *ngFor="let auction of filteredAuctions">
+      <app-real-estate-card
+        [showBidSection]="false"
+        [auction]="auction"
+        (editEvent)="openEditRealEstateModal(auction)">
+      </app-real-estate-card>
+    </ng-container>
+  </div>
+
+  <div *ngIf="filteredAuctions.length === 0" class="no-properties">
+    <p>No auctions available.</p>
+  </div>
+
+  <app-real-estate-add-modal
+    *ngIf="isModalOpen && selectedAuction"
+    [auction]="selectedAuction"
+    (closeModalEvent)="closeModal()"
+    (saveEvent)="handleSave($event)">
+  </app-real-estate-add-modal>
+
+  <div class="confirmation-modal" *ngIf="showConfirmationModal">
+    <div class="modal-content">
+      <p>Auction added successfully!</p>
+      <button (click)="closeConfirmationModal()">OK</button>
+    </div>
+  </div>
+</div>
