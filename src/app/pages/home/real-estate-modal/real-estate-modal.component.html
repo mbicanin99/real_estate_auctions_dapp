@@ -1,0 +1,48 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <button class="close-button" (click)="closeModal()">&times;</button>
+    <h2>{{ auction?.realEstate?.title }}</h2>
+
+    <div class="modal-body">
+      <div *ngIf="isAuctionEnded">
+        <p class="ended-message">Auction has ended. The highest bid was {{ auction?.highestBid }} EUR by {{ auction?.highestBidder }}.</p>
+      </div>
+
+      <!-- Prikaz poruke ako aukcija nije započela i treba prikazati sekciju za bidovanje -->
+      <div *ngIf="!isAuctionStarted && !isAuctionEnded && showBidSection">
+        <p class="not-started-message">Auction has not started yet. Please check back later.</p>
+      </div>
+
+      <div *ngIf="!isAuctionStarted && !isAuctionEnded && !showBidSection">
+        <p class="not-started-message">Auction has not started yet!</p>
+      </div>
+
+      <div *ngIf="isAuctionStarted && !isAuctionEnded && !showBidSection">
+        <p class="started-message">Auction has started!</p>
+      </div>
+
+      <div class="slider">
+        <app-image-slider class="slider-images" [images]="auction?.realEstate?.images"></app-image-slider>
+      </div>
+      <div class="property-details">
+        <p><strong>Description:</strong> {{ auction?.realEstate?.description || 'No description available' }}</p>
+        <p><strong>Location:</strong> {{ auction?.realEstate?.location }}</p>
+        <p><strong>Quadrature:</strong> {{ auction?.realEstate?.quadrature }} m²</p>
+        <p><strong>Auction Start Date:</strong> {{ auction?.auctionStartTime | date }}</p>
+        <p><strong>Auction End Date:</strong> {{ auction?.auctionEndTime | date }} </p>
+        <p><strong>Starting Bid:</strong> {{ auction?.startingBid }} EUR</p>
+        <p><strong>Bid Increment:</strong> {{ auction?.bidIncrement }} EUR</p>
+        <p><strong>Highest Bid:</strong> {{ auction?.highestBid }} EUR by {{ auction?.highestBidder }}</p>
+      </div>
+
+      <app-bidding-section
+        *ngIf="isAuctionStarted && !isAuctionEnded && showBidSection"
+        [highestBid]="highestBid"
+        [highestBidder]="highestBidder"
+        [auctionEndDate]="auction?.auctionEndTime || ''"
+        [bidError]="bidError"
+        (emitBidEvent)="onBid($event)">
+      </app-bidding-section>
+    </div>
+  </div>
+</div>

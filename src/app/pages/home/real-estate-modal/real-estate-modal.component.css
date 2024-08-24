@@ -1,0 +1,104 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 90%; /* Start with a flexible max-width */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  overflow: auto; /* Allow scrolling if content overflows */
+  max-height: 90vh; /* Limit the modal height to viewport height */
+}
+
+/* Responsive behavior with media queries */
+@media (min-width: 576px) {
+  .modal-content {
+    max-width: 500px; /* Increase max-width for small tablets and up */
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-content {
+    max-width: 600px; /* Increase max-width for tablets and larger screens */
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-content {
+    max-width: 700px; /* Larger max-width for laptops and desktops */
+  }
+}
+
+@media (max-width: 800px) {
+  .bid-section h3 {
+    font-size: 1.2em; /* Smaller font size for small screens */
+  }
+
+  .bid-info p {
+    font-size: 1em; /* Smaller font size for small screens */
+  }
+
+  .bid-input {
+    font-size: 0.9em; /* Smaller font size for input */
+  }
+
+  .bid-button {
+    font-size: 0.9em; /* Smaller font size for button */
+  }
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.property-details p {
+  margin: 0;
+}
+
+.not-started-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.started-message {
+  color: green;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.ended-message {
+  color: orange;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
