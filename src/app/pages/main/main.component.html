@@ -1,0 +1,27 @@
+<div class="main-container">
+  <div>
+    <img class="background-image"/>
+    <img class="background-image2"/>
+    <div class="welcome-information">
+      <div class="titlee">
+        <h1 class="title-text">Trusted Real Estate
+          Property For You</h1>
+        <img class="img-ether" src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg"/>
+      </div>
+      <div class="subtitle">
+        Our reliable blockchain-based real estate rental system provides
+        <br> you with security and convenience during the rental process.
+        <br>
+        Renting has never been easier, faster, or more trustworthy.
+      </div>
+      <div class="metamask">
+        <button class="connect-button" (click)="connectMetaMask()">Connect to MetaMask</button>
+      </div>
+    </div>
+    <img class="img-ether-2" src="https://cryptologos.cc/logos/ethereum-eth-logo.png" width="200" height="200" alt="Ethereum Logo">
+  </div>
+  <app-role-selection
+    [isVisible]="showRoleSelection"
+    (emitRole)="setRole($event)"
+  ></app-role-selection>
+</div>
