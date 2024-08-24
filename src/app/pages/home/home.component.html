@@ -1,0 +1,9 @@
+<div class="content">
+  <div class="real-estate-container">
+    <ng-container *ngFor="let auction of auctions; let i = index">
+      <app-real-estate-card
+        [auction]="auction">
+      </app-real-estate-card>
+    </ng-container>
+  </div>
+</div>

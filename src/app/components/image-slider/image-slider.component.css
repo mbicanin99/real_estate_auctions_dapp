@@ -1,0 +1,56 @@
+.img-slider {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  display: none;
+  position: relative;
+}
+
+.slides.active {
+  display: block;
+}
+
+.slides img {
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  max-height: 350px;
+  display: block;
+}
+
+.controls {
+  position: absolute;
+  top: 50%;
+  width: calc(100% - 30px);
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 15px;
+}
+
+.controls button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  outline: none;
+  z-index: 2; /* Ensure buttons are above images */
+}
+
+.controls button.prev {
+  align-self: flex-start;
+}
+
+.controls button.next {
+  align-self: flex-end;
+}
+
+.controls button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

@@ -1,0 +1,9 @@
+<div class="img-slider">
+  <div class="slides" *ngFor="let image of images; let i = index" [class.active]="i === activeIndex">
+    <img class="one-image" [src]="image" alt="Property Image" />
+  </div>
+  <div class="controls">
+    <button (click)="prevSlide($event)" class="prev">&#10094;</button>
+    <button (click)="nextSlide($event)" class="next">&#10095;</button>
+  </div>
+</div>
