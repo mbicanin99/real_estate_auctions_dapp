@@ -1,0 +1,31 @@
+<div class="card-container" (click)="openModal()">
+  <app-image-slider [images]="auction.realEstate?.images"></app-image-slider>
+
+  <div class="card-content">
+    <a>
+      <h5 class="card-title">{{ auction.realEstate?.title }}</h5>
+    </a>
+    <p class="card-item">
+      {{ auction.realEstate?.description || 'No description available' }}
+    </p>
+    <p class="card-item">
+      Location: {{ auction.realEstate?.location }}
+    </p>
+    <p class="card-item">
+      Quadrature: {{ auction.realEstate?.quadrature }} m²
+    </p>
+    <p class="card-item">
+      Auction start date: {{ auction?.auctionStartTime | date }}
+    </p>
+    <p class="card-item">
+      Starting bid: {{ auction?.startingBid }} EUR
+    </p>
+  </div>
+</div>
+
+<app-real-estate-modal
+  *ngIf="isModalOpen"
+  [showBidSection]="showBidSection"
+  [auction]="auction"
+  (closeModalEvent)="closeModal()">
+</app-real-estate-modal>
